@@ -26,12 +26,6 @@ A React dashboard for visualizing battery telemetry data (SoC, voltage, current,
 
 ## Run the app
 
-**Option 1 – Windows (double-click)**  
-- `run.bat` – installs dependencies and starts the dev server  
-- Or in PowerShell: `.\run.ps1`
-
-**Option 2 – Terminal**
-
 ```bash
 npm install
 npm start

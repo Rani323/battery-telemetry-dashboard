@@ -1,18 +1,18 @@
 /* Battery Telemetry Dashboard – Global styles */
 
 :root {
-  --color-bg: #0f1419;
-  --color-surface: #1a2332;
-  --color-border: #2d3a4f;
-  --color-text: #e6edf3;
-  --color-text-muted: #8b949e;
+  --color-bg: #f6f8fa;
+  --color-surface: #ffffff;
+  --color-border: #d0d7de;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
   --color-soc: #3fb950;
   --color-voltage: #58a6ff;
   --color-current: #d2a8ff;
   --color-temp: #f0883e;
   --color-error: #f85149;
   --radius: 8px;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
 }
 
 *,
@@ -152,7 +152,7 @@ body {
 }
 
 .data-table__table th {
-  background: rgba(0, 0, 0, 0.2);
+  background: #f3f4f6;
   color: var(--color-text-muted);
   font-weight: 600;
 }
