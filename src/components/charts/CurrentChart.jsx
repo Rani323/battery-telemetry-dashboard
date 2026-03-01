@@ -23,6 +23,7 @@ export default function CurrentChart({ data }) {
 
     const root = am5.Root.new(chartDivRef.current);
     root.setThemes([am5themes_Animated.new(root)]);
+    setTimeout(() => root._logo?.dispose(), 100);
 
     const chart = root.container.children.push(
       am5xy.XYChart.new(root, {
@@ -55,7 +56,7 @@ export default function CurrentChart({ data }) {
     );
 
     const series = chart.series.push(
-      am5xy.LineSeries.new(root, {
+      am5xy.SmoothedXLineSeries.new(root, {
         name: 'Current',
         xAxis,
         yAxis,
@@ -64,12 +65,12 @@ export default function CurrentChart({ data }) {
         tooltip: am5.Tooltip.new(root, { labelText: '{categoryX}: {valueY} A' }),
       })
     );
-    series.strokes.template.setAll({ stroke: am5.color(0xd2a8ff), strokeWidth: 2 });
+    series.strokes.template.setAll({ stroke: am5.color(0xd2a8ff), strokeWidth: 2.5 });
 
     series.bullets.push(() =>
       am5.Bullet.new(root, {
         sprite: am5.Circle.new(root, {
-          radius: 3,
+          radius: 4,
           fill: am5.color(0xd2a8ff),
           stroke: root.interfaceColors.get('background'),
           strokeWidth: 2,

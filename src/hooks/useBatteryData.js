@@ -7,6 +7,8 @@ import {
   peakCurrent,
   averageTemp,
   latestSoc,
+  latestSoh,
+  chargeCycle,
 } from '../utils/calculations';
 
 /**
@@ -25,8 +27,25 @@ export function useBatteryData() {
       const res = await fetch(BATTERY_DATA_URL);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const raw = await res.json();
-      const sorted = Array.isArray(raw)
-        ? [...raw].sort((a, b) => (a.time ?? 0) - (b.time ?? 0))
+
+      // Normalize different possible response shapes:
+      // - Plain array of telemetry points
+      // - { data: [...] }
+      // - { json: { status, data: [...] } }
+      // - [ { json: { status, data: [...] } } ]
+      let rows = [];
+      if (Array.isArray(raw) && raw.length && raw[0]?.json?.data) {
+        rows = raw[0].json.data || [];
+      } else if (Array.isArray(raw) && raw.length && raw[0]?.time != null) {
+        rows = raw;
+      } else if (raw?.json?.data) {
+        rows = raw.json.data || [];
+      } else if (Array.isArray(raw?.data)) {
+        rows = raw.data;
+      }
+
+      const sorted = Array.isArray(rows)
+        ? [...rows].sort((a, b) => (a.time ?? 0) - (b.time ?? 0))
         : [];
       setData(sorted);
     } catch (e) {
@@ -44,6 +63,8 @@ export function useBatteryData() {
   const stats = {
     averageSoc: averageSoc(data),
     latestSoc: latestSoc(data),
+    latestSoh: latestSoh(data),
+    chargeCycle: chargeCycle(data),
     peakVoltage: peakVoltage(data),
     minVoltage: minVoltage(data),
     peakCurrent: peakCurrent(data),

@@ -63,3 +63,25 @@ export function latestSoc(data) {
   const sorted = [...data].sort((a, b) => (b.time ?? 0) - (a.time ?? 0));
   return sorted[0].soc ?? null;
 }
+
+/**
+ * Latest SoH (State of Health) from sorted-by-time data.
+ * @param {Array<{ time: number, soh: number }>} data
+ * @returns {number|null}
+ */
+export function latestSoh(data) {
+  if (!Array.isArray(data) || data.length === 0) return null;
+  const sorted = [...data].sort((a, b) => (b.time ?? 0) - (a.time ?? 0));
+  return sorted[0].soh ?? null;
+}
+
+/**
+ * Latest charge cycle count from sorted-by-time data.
+ * @param {Array<{ time: number, charge_cycle: number }>} data
+ * @returns {number|null}
+ */
+export function chargeCycle(data) {
+  if (!Array.isArray(data) || data.length === 0) return null;
+  const sorted = [...data].sort((a, b) => (b.time ?? 0) - (a.time ?? 0));
+  return sorted[0].charge_cycle ?? null;
+}

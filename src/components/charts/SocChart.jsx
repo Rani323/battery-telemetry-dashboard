@@ -24,6 +24,7 @@ export default function SocChart({ data }) {
 
     const root = am5.Root.new(chartDivRef.current);
     root.setThemes([am5themes_Animated.new(root)]);
+    setTimeout(() => root._logo?.dispose(), 100);
 
     const chart = root.container.children.push(
       am5xy.XYChart.new(root, {

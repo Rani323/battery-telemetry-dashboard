@@ -12,8 +12,9 @@ export default function TemperatureChart({ data }) {
   const chartData = useMemo(
     () =>
       (data || []).map((d) => ({
-    timeLabel: formatTimeShort(d.time),
-    temp: d.battery_temp,
+        timeLabel: formatTimeShort(d.time),
+        temp: d.battery_temp,
+        tempFormatted: d.battery_temp != null ? `${d.battery_temp} °C` : '—',
       })),
     [data]
   );
@@ -23,6 +24,7 @@ export default function TemperatureChart({ data }) {
 
     const root = am5.Root.new(chartDivRef.current);
     root.setThemes([am5themes_Animated.new(root)]);
+    setTimeout(() => root._logo?.dispose(), 100);
 
     const chart = root.container.children.push(
       am5xy.XYChart.new(root, {
@@ -61,7 +63,7 @@ export default function TemperatureChart({ data }) {
         yAxis,
         categoryXField: 'timeLabel',
         valueYField: 'temp',
-        tooltip: am5.Tooltip.new(root, { labelText: '{categoryX}: {valueY} °C' }),
+        tooltip: am5.Tooltip.new(root, { labelText: '{categoryX}: {tempFormatted}' }),
       })
     );
     series.set('connect', true);

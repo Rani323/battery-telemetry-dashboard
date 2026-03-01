@@ -1,74 +1,17 @@
 [
   {
-    "time": 1756663200000,
-    "soc": 88,
-    "soh": 100,
-    "battery_voltage": 56.20,
-    "current": 0.0,
-    "charge_cycle": 1,
-    "battery_temp": 32.5
-  },
-  {
-    "time": 1756665000000,
-    "soc": 78,
-    "soh": 100,
-    "battery_voltage": 55.00,
-    "current": 0.4,
-    "charge_cycle": 1,
-    "battery_temp": 34.2
-  },
-  {
-    "time": 1756666800000,
-    "soc": 62,
-    "soh": 99,
-    "battery_voltage": 54.10,
-    "current": 0.8,
-    "charge_cycle": 1,
-    "battery_temp": 36.1
-  },
-  {
-    "time": 1756668600000,
-    "soc": 45,
-    "soh": 99,
-    "battery_voltage": 53.20,
-    "current": 1.1,
-    "charge_cycle": 1,
-    "battery_temp": 39.4
-  },
-  {
-    "time": 1756670400000,
-    "soc": 34,
-    "soh": 98,
-    "battery_voltage": 52.71,
-    "current": 0.5,
-    "charge_cycle": 1,
-    "battery_temp": null
-  },
-  {
-    "time": 1756672200000,
-    "soc": 28,
-    "soh": 98,
-    "battery_voltage": 52.10,
-    "current": 0.9,
-    "charge_cycle": 1,
-    "battery_temp": 42.8
-  },
-  {
-    "time": 1756674000000,
-    "soc": 19,
-    "soh": 98,
-    "battery_voltage": 51.40,
-    "current": 1.2,
-    "charge_cycle": 1,
-    "battery_temp": 46.3
-  },
-  {
-    "time": 1756675800000,
-    "soc": 15,
-    "soh": 97,
-    "battery_voltage": 50.80,
-    "current": 1.3,
-    "charge_cycle": 1,
-    "battery_temp": null
+    "json": {
+      "status": "SUCCESS",
+      "data": [
+        {"time":1756665019142,"soc":39,"soh":100,"battery_voltage":52.74,"current":0,"charge_cycle":1,"battery_temp":32.5},
+        {"time":1756665919142,"soc":39,"soh":100,"battery_voltage":52.74,"current":0,"charge_cycle":1,"battery_temp":33.2},
+        {"time":1756666814171,"soc":39,"soh":100,"battery_voltage":52.74,"current":0,"charge_cycle":1,"battery_temp":34.1},
+        {"time":1756666868957,"soc":39,"soh":100,"battery_voltage":52.74,"current":0,"charge_cycle":1,"battery_temp":35.0},
+        {"time":1756666928956,"soc":39,"soh":100,"battery_voltage":52.74,"current":0,"charge_cycle":1,"battery_temp":35.8},
+        {"time":1756667959142,"soc":39,"soh":100,"battery_voltage":52.74,"current":0,"charge_cycle":1,"battery_temp":36.4},
+        {"time":1756668859141,"soc":39,"soh":100,"battery_voltage":52.74,"current":0,"charge_cycle":1,"battery_temp":37.2},
+        {"time":1756669759142,"soc":39,"soh":100,"battery_voltage":52.74,"current":0,"charge_cycle":1,"battery_temp":38.0}
+      ]
+    }
   }
 ]
